@@ -1,0 +1,15 @@
+<!--<p>Pulsa en el botón para traer los países del mundo 
+	<button (click)="traerPaises()">Traer países</button>
+</p>
+
+<p>Si quieres un solo país escríbe y pulsa traer
+	<input [(ngModel)]="pais">
+	<button (click)="traerPais()">Traer país</button>
+</p>
+
+<div *ngIf="paises">{{ paises }}</div>-->
+
+<ul>
+	<li *ngFor="let pais of listaPaises">{{pais.translations.spa.common}}</li>
+</ul>
+
