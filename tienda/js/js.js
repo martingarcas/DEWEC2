@@ -240,5 +240,21 @@ $(document).ready(function() {
         console.log('Comprar: ' + id);
         comprar(id);
     });
+
+    //Arrastrar producto
+    $("img[id^=imagen]").draggable({
+        helper:"clone",
+        start: function (e, ui) {
+            console.log(e, ui);
+            ui.helper.data();
+            ui.helper.css({"border-radius": "50%", "filter": "drop-shadow(2px 4px 6px black"})
+            
+        }
+    });
+
+    $("#carrito").droppable({
+        helper:"clone",
+        
+    });
 });
 
