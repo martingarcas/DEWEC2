@@ -7,14 +7,18 @@ import { Observable } from 'rxjs';
 })
 export class PaisesService {
 
-  constructor(public http:HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-  get(): Observable<any> {
-    return this.http.get("https://restcountries.com/v3.1/all");
+  get(): Observable<any[]> {    
+    return this.http.get<any[]>("https://restcountries.com/v3.1/all");
   }
 
-  getPais(pais:String) {
-    return this.http.get("https://restcountries.com/v3.1/name/" + pais);
+  getPais(pais: string): Observable<any[]> {
+    return this.http.get<any[]>(`https://restcountries.com/v3.1/name/${pais}`);
+  }
+
+  getPaisPorCodigo(ccA3: string): Observable<any> {
+    return this.http.get(`https://restcountries.com/v3.1/alpha/${ccA3}`);
   }
 
 }

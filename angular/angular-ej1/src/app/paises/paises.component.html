@@ -9,7 +9,15 @@
 
 <div *ngIf="paises">{{ paises }}</div>-->
 
-<ul>
+<!--<ul>
 	<li *ngFor="let pais of listaPaises">{{pais.translations.spa.common}}</li>
+</ul>-->
+  
+<ul>
+	<li *ngFor="let pais of listaPaises">
+		<a [routerLink]="['/pais', pais.name.common]">
+			{{ pais.translations.spa.common }}
+		</a>
+	</li>
 </ul>
 

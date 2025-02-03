@@ -1,0 +1,9 @@
+<div *ngIf="pais">
+	<h2>{{ pais.translations.spa.common }}</h2>
+	<p><strong>Nombre oficial:</strong> {{ pais.name.official }}</p>
+	<p><strong>Capital:</strong> {{ pais.capital[0] }}</p>
+	<p><strong>Región:</strong> {{ pais.region }}</p>
+	<p><strong>Lengua(s):</strong> {{ pais.languages | json }}</p>
+	<p><strong>Moneda:</strong> {{ pais.currencies | json }}</p>
+</div>
+  

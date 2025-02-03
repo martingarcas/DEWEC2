@@ -1,22 +1,25 @@
 import { Component } from '@angular/core';
 import { PaisesService } from '../paises.service';
+import { RouterModule } from '@angular/router'; // Importar RouterModule aquí
 import { FormsModule } from '@angular/forms';
 import { OnInit } from '@angular/core';
 import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-paises',
-  imports: [FormsModule ,NgFor],
+  standalone: true, // Importante si estás usando componentes standalone
+  imports: [FormsModule, NgFor, RouterModule], // Añadir RouterModule aquí
   templateUrl: './paises.component.html',
-  styleUrl: './paises.component.css'
+  styleUrls: ['./paises.component.css']
 })
-export class PaisesComponent implements OnInit{
+export class PaisesComponent implements OnInit {
 
-  pais:String;
-  listaPaises:any[];
-  constructor(private paises:PaisesService) { 
-    this.pais = "";
-    this.listaPaises=[];
+  pais: string;
+  listaPaises: any[];
+
+  constructor(private paises: PaisesService) {
+    this.pais = '';
+    this.listaPaises = [];
   }
 
   ngOnInit() {
@@ -29,9 +32,7 @@ export class PaisesComponent implements OnInit{
     this.paises.get();
   }
 
-  
   traerPais() {
     this.paises.getPais(this.pais);
   }
-
 }
